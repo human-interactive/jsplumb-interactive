@@ -147,6 +147,8 @@ jsPlumb.connect({
               <div id="target" class="node" style="top:281px; left: 266px;">Target</div>
             </div>
           </div>
+          <h4>Main Components</h4>
+          <p><a href="anchors.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Anchor</a>, <a href="endpoints.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Endpoint</a>, <a href="connectors.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Connector</a>, <a href="overlays.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Overlay</a></p>
           <p>
             <ul class="list-unstyled">
               <li><i class="glyphicon glyphicon-check"></i> A, B can't move out from their containments.</li>
@@ -175,6 +177,7 @@ jsPlumb.connect({
 
     <script type="text/javascript">
     $(document).ready(function(){
+
       var connection;
       var connectionproperties = {
               source:$("#source"),
