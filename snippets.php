@@ -35,11 +35,12 @@
 			jsPlumb.draggable($("#"+nodeid),{containment : plotarea});
 		 }
 		var connectionProperties = {
-				endpoint : "Blank",
+				endpoint : "Dot",
 				connector: ["Bezier", {curviness : 50}],
 			 	anchor : "AutoDefault",
 			 	overlays: [["Arrow", {width: 10,length: 10,location: 1}]],
 			 	paintStyle: {strokeStyle: "#5b9ada",lineWidth: 3},
+			 	maxConnection : 2,
 			 	hoverPaintStyle : {strokeStyle:"#1e8151", lineWidth:2 }
 			 };
 
@@ -50,6 +51,10 @@
 				var connection = data.connections[connectionid];
 				connectionProperties.source = $('#'+connection.source);
 				connectionProperties.target = $('#'+connection.target);
+				if (connection.type == "MNO") {
+					connectionProperties.reattach = true;
+					connectionProperties.paintStyle = {strokeStyle:"red", lineWidth:3 }
+				};
 				//debugger
 				/*jsPlumb.connect({source : $('#'+connection.source),target : $('#'+connection.target) });*/
 				jsPlumb.connect(connectionProperties);

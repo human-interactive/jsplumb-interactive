@@ -6,21 +6,22 @@ var commonsettingsProperties = {
     anchors:[ "BottomCenter", "TopCenter" ],
     endpoints:["Dot", "Blank" ]
 };
-jsPlumb.connect({
+var conn = jsPlumb.connect({
     source:$("selector"),
     target:$("selector"),
-    anchor:[ "Continuous", { faces:["top","bottom"] }],
-    endpoint:[ "Dot", { radius:5, hoverClass:"myEndpointHover" }, common ],
-    connector:[ "Bezier", { curviness:100 }, common ],
-    overlays: [
+    <a href="anchors.php" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="label label-primary">anchor</span></a>:[ "Continuous", { faces:["top","bottom"] }],
+    <a href="endpoints.php" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="label label-primary">endpoint</span></a>:[ "Dot", { radius:5, hoverClass:"myEndpointHover" }, common ],
+    <a href="connectors.php" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="label label-primary">connector</span></a>:[ "Bezier", { curviness:100 }, common ],
+    <a href="overlays.php" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="label label-primary">overlays</span></a>: [
           [ "Arrow", { foldback:0.2 }, common ],
           [ "Label", { cssClass:"labelClass" } ]  
       ],
-      label : “some Label”,
-      paintStyle:{
-              strokeStyle:"red",
-              lineWidth:3
-          }
+    label : "some Label",
+    paintStyle:{strokeStyle:"red",lineWidth:3},<div id="parameters" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="top" data-html="true" data-content="Parameters can be any valid Javascript objects. And can be accessed using <code>conn.getParameter(parametername)</code>">
+    <span class="label label-default">parameters</span></div>:{
+        "p1": 34, 
+        "p2":new Date()
+    }
   }, commonsettingsProperties);
             </pre>
         <p>You may also use :
@@ -53,8 +54,6 @@ jsPlumb.connect({
             </div>
         </div>
         <h4>Main Components</h4>
-        <p><a href="anchors.php" data-toggle="modal" data-target=".bs-example-modal-lg">Anchor</a>, <a href="endpoints.php" data-toggle="modal" data-target=".bs-example-modal-lg">Endpoint</a>, <a href="connectors.php" data-toggle="modal" data-target=".bs-example-modal-lg">Connector</a>, <a href="overlays.php" data-toggle="modal" data-target=".bs-example-modal-lg">Overlay</a>
-        </p>
         <p>
             <ul class="list-unstyled">
                 <li><i class="glyphicon glyphicon-check"></i> A, B can't move out from their containments.</li>

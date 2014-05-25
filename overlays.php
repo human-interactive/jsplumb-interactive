@@ -1,7 +1,7 @@
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-9"><h3><strong>Overlays</strong></h3>
-
+<div class="container">
+	<div class="row">
+		<div class="col-md-9"><h3><strong>Overlays</strong></h3>
+You can add any number of overlays.
 <ul>
 	<li>
 	<p><strong>Arrow</strong> - An arrow with foldback.</p>
@@ -65,9 +65,5 @@
 	</li>
 </ul>
 
-<ul>
-	<li>
 	<p>PlainArrow (foldback 1), and Diamond (foldback 2) are 2 specialized instances of Arrow. So inherit Arrow&rsquo;s properties.</p>
-	</li>
-</ul>
 </div></div></div>

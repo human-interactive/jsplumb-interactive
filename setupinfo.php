@@ -13,9 +13,9 @@
     </div>
     <div id="Dragging" class="panel-collapse collapse in">
         <div class="panel-body">
-            Set
-            <strong>position:absolute</strong>
-            <pre>jsPlumb.draggable(element, {  containment: element-parent});</pre>
+            Set <strong>position</strong> of an element to <strong>absolute</strong>.
+            <pre>jsPlumb.draggable(element,{ containment: element-parent});</pre>
+            <strong>Note:</strong> If you make an element draggable using jquery plugin, connection will not drag together an element.
         </div>
     </div>
 </div>

@@ -48,7 +48,7 @@
                   <td>_jsPlumb_overlay</td>
                 </tr>
                 <tr>
-                  <td><div data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="You can change component's style on hover. To change style of an <strong>endpoint</strong> and a <strong>connection</strong>, set folowing properties of jsPlumb respectivly: EndpointHoverStyle, HoverPaintStyle">Hover <i class="glyphicon glyphicon-tag"></i></div></td>
+                  <td><div data-container="body" data-toggle="popover" data-trigger="hover" data-placement="right" data-html="true" data-content="You can change component's style on hover. To change style of an <strong>endpoint</strong> and a <strong>connection</strong>, set folowing properties of jsPlumb respectivly: EndpointHoverStyle, HoverPaintStyle"><span class="label label-primary">Hover</span></div></td>
                   <td>_jsPlumb_hover, _jsPlumb_source_hover, _jsPlumb_target_hover</td>
                 </tr>
                 <tr>
@@ -136,7 +136,9 @@
       $('.colorpicker').colorpicker();
 
       $("#controlbox").draggable({containment:$("layer"), handle: ".panel-heading", cursor:"move"});
-      $("div").popover();
+      $("div").popover();$("span").popover();
+
+
 
       jsPlumb.ready(function() {
 
@@ -239,6 +241,7 @@
       console.log(tips[getRandomArbitary(0,4)]);
       return tips[getRandomArbitary(0,4)];
     }
+
     </script>
           <?php 
           include 'stylebox.php' ;
