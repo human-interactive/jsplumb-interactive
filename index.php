@@ -15,45 +15,10 @@
     ?>
 
     <div class="container">
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
           <h2>Setup</h2>
-          <p>jsPlumb is registered on the browser's window by default
-            <pre>jsPlumb.ready(function() { ... });</pre>
-            or you can create your instances.
-            <pre>var instance = jsPlumb.getInstance();</pre>
-          </p>
-          <div class="panel panel-info collapsable">
-            <div class="panel-heading flat">
-              <h4 class="panel-title">
-                <i class="glyphicon glyphicon-move"></i> Dragging
-                <a class="collapse-toggle" data-toggle="collapse" href="#Dragging"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i>
-              </a>
-              </h4>
-            </div>
-            <div id="Dragging" class="panel-collapse collapse in">
-              <div class="panel-body">
-                Set <strong>position:absolute</strong>
-                <pre>jsPlumb.draggable(element, {  containment: element-parent});</pre>
-              </div>
-            </div>
-          </div>
-          <div class="panel panel-info collapsable">
-            <div class="panel-heading flat">
-              <h4 class="panel-title">
-                <i class="glyphicon glyphicon-zoom-in"></i> Zooming
-                <a class="collapse-toggle" data-toggle="collapse" href="#Zooming"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i>
-              </a>
-              </h4>
-            </div>
-            <div id="Zooming" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <p>Set transform CSS property of container and tell the current zoom level to jsPlumb</p>
-                <pre>jsPlumb.setZoom(0.75);</pre>
-              </div>
-            </div>
-          </div>
+          <?php include 'setupinfo.php' ?>
 
         <ul class="nav nav-tabs">
           <li class="active"><a href="#jsplumbclasses" data-toggle="tab"><h4>Classes</h4></a></li>
@@ -99,71 +64,24 @@
             <pre>jsPlumb.Defaults.IndividualPorperty = value as String|Array|Object; </pre>
             <pre>jsPlumb.importDefaults({Property : Value; ... }); </pre>
             <pre>var instance = jsPlumb.getInstance({Property : Value; ... }); </pre>
+            You can also passing common properties while establising a connection.
           </p>
           </div>
-        </div>
-        </div>
+        </div><!-- Tabs panel end-->
+      </div><!-- First Column End -->
         <div class="col-md-8">
-          <h2>Example Demo</h2>
-          <div class="row">
-            <div class="col-md-6">
-              
-            <h4>Snippet</h4>
-            <div>
-            <pre class="htmlSnippet">
-var common = {cssClass:"myCssClass"};
-jsPlumb.connect({
-    source:$("selector"),
-    target:$("selector"),
-    anchor:[ "Continuous", { faces:["top","bottom"] }],
-    endpoint:[ "Dot", { radius:5, hoverClass:"myEndpointHover" }, common ],
-    connector:[ "Bezier", { curviness:100 }, common ],
-    overlays: [
-          [ "Arrow", { foldback:0.2 }, common ],
-          [ "Label", { cssClass:"labelClass" } ]  
-      ],
-      label : “some Label”,
-      paintStyle:{
-              strokeStyle:"red",
-              lineWidth:3
-          }
-  });
-            </pre>
-            </div>
-            </div>
-          <div class="col-md-6">
-          <div id="plotarea" class="panel panel-default">
-              <div class="lead pull-left" style="color : #DBDBDB">Container</div>
-              <div class="pull-right">
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-zoom-in"></span></button>
-                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-zoom-out"></span></button>
-                <button type="button" id="plotsettings" class="btn btn-default"><span class="glyphicon glyphicon-cog"></span></button>
-              </div>
-              <div class="clearfix"></div>
-            <div id="upperpanel" class="panel panel-default"><p class="lead" style="color : #DBDBDB">Containment</p>
-              <div id="source" class="node" style="top:91px; left: 106px;" >Source</div>
-            </div>
-            <div id="lowerpannel" class="panel panel-default"><p class="lead" style="color : #DBDBDB">Containment</p>
-              <div id="target" class="node" style="top:281px; left: 266px;">Target</div>
-            </div>
-          </div>
-          <h4>Main Components</h4>
-          <p><a href="anchors.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Anchor</a>, <a href="endpoints.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Endpoint</a>, <a href="connectors.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Connector</a>, <a href="overlays.php" data-toggle="modal" data-target=".bs-example-modal-lg" >Overlay</a></p>
-          <p>
-            <ul class="list-unstyled">
-              <li><i class="glyphicon glyphicon-check"></i> A, B can't move out from their containments.</li>
-              <li><i class="glyphicon glyphicon-check"></i> A can connect to B because both are in same container.</li>
-            </ul>
-          </p>
-       </div>
-      </div>
-
-      <hr>
-      <footer>
+          <h3>Establishing Connections</h3>
+          <?php include 'connectiondemo.php' ?>
+      </div><!-- Second Column End -->
+      </div><!-- row ends -->
+      <hr/> 
+      <?php include 'dragaconnection.php'  ?>
+    </div> <!-- /container -->      
+    
+     <hr/>
+    <footer>
         <p>&copy; thinkzarahatke.com 2014</p>
       </footer>
-    </div> <!-- /container -->        
-    
 <!--    <script src="js/vendor/bootstrap.min.js"></script>-->
 <script src="js/vendor/bootstrap.min.js"></script>
     
@@ -196,6 +114,11 @@ jsPlumb.connect({
 
       $("#controlbox").hide();
       $("#plotsettings").click(function(){
+        var top = document.documentElement.scrollTop || document.body.scrollTop;
+        var left = document.documentElement.scrollLeft || document.body.scrollLeft;
+        left = left + $( window ).width() / 2;
+        top = top + ($( window ).height() - $("#controlbox").height()) / 2;
+        $("#controlbox").css({"top" : top, "left" : left});
         $("#controlbox").toggle();
       });
       $("pre.htmlSnippet").snippet("javascript", {style : "zellner"});
@@ -254,7 +177,7 @@ jsPlumb.connect({
             generateHoverPopover($("._jsPlumb_connector"),'left',"Connector");
             generateHoverPopover($("._jsPlumb_overlay"),'top',"Overlays");
           });
-
+          
         //setZoom(0.25);
       });
     });
@@ -302,7 +225,7 @@ jsPlumb.connect({
     var popoverText = {
       "Overlays" : "There can be any number of overlays. These are decorators for connector. You can control their position, direction, and style.",
       "Connector": "This is the line drawn between 2 endpoints. It basically defines the line style whereas <strong>paintstyle</strong> defines line stroke.",
-      "Endpoint" : "Connects a connector to an element on an anchor. It can be dragged to anchor of same or other element.",
+      "Endpoint" : "Connects a connector to an element on an anchor. If it is detachable then it can be dragged to anchor of same or other element.",
       "Anchor"   :  "These are like ports on an element where a connector connects through endpoints. <br/> There are four faces of an element : top, right, botton and left."
     }
 

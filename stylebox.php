@@ -1,4 +1,4 @@
-<div id="controlbox" style="position:absolute" class="col-md-3">
+<div id="controlbox" style="position:absolute;" class="col-md-3">
             <div  class="panel panel-info collapsable">
               <div class="panel-heading flat">
                 <h4 class="panel-title"><i class="glyphicon glyphicon-cog"></i> Control Box

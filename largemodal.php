@@ -6,9 +6,10 @@
 </div>
 
     <script type="text/javascript">
-    $(document).ready(function(){
-      $('body').on('.bs-example-modal-lg', '.modal', function () {
-          $(this).removeData('bs.modal');
+      $(document).ready(function(){
+        $('body').on('.bs-example-modal-lg', '.modal', function () {
+          debugger
+            $(this).removeData('bs.modal');
+        });
       });
-    });
     </script>
