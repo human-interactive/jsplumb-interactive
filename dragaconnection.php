@@ -22,6 +22,7 @@
 jsPlumb.detach(conn);</pre>
 		Remember that your this action will also delete the connection if you haven't set <code>deleteEndpointsOnDetach:false</code> and the target endpoint was not registered with <strong>addEndpoint</strong>).
 		</p>
+		<h3>Type of Connection/Endpoint</h3>
 		<p>There may be a situation when you need to draw a differnt type/style of connection among various elements. You can do it in 2 steps.
 			<ol>
 				<li>Registering a connection style and give it some name to this style</li>
@@ -79,6 +80,68 @@ var e = jsPlumb.addEndpoint("someDiv", {
     data:{ color: "blue" }
 });
 </pre>
+		</p>
+		<h3>Events</h3>
+<pre>
+jsPlumb.bind("connection", function(info) {
+   .. update your model in here, maybe.
+});
+</pre>
+		<p>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td><strong>connection(info, originalEvent)</strong><a class="collapse-toggle" data-toggle="collapse" href="#connectionevent"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i></a></td>
+					</tr>
+					<tr id="connectionevent" class="collapse in success">
+						<td class="col-md-4" > When a connection is established <br/> info is an object with the following properties: connection, sourceId, targetId, source, target, sourceEndpoint, targetEndpoint<br/>no original event when a connection is established programmatically.</td>
+					</tr>
+					<tr>
+						<td><strong>connectionDetached(info, originalEvent)</strong><a class="collapse-toggle" data-toggle="collapse" href="#connectionDetached"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i></a></td>
+					</tr>
+					<tr id="connectionDetached" class="collapse in success">
+						<td class="col-md-4">When a connection is detached.<br/>info is an object with the following properties: connection, sourceId, targetId, source, target, sourceEndpoint, targetEndpoint</td>
+					</tr>
+					<tr>
+						<td><strong>connectionMoved(info, originalEvent)</strong><a class="collapse-toggle" data-toggle="collapse" href="#connectionMoved"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i></a></td>
+					</tr>
+					<tr id="connectionMoved" class="collapse in success">
+						<td class="col-md-4">info is an object with the following properties: index(0 for source endpoint, 1 for target endpoint), originalSourceId, newSourceId, originalTargetId, newTargetId, originalSourceEndpoint, newSourceEndpoint, originalTargetEndpoint, newTargetEndpoint.</td>
+					</tr>
+					<tr>
+						<td><strong>connectionDrag(connection)</strong></td>
+					</tr>
+					<tr>
+						<td><strong>connectionDragStop(connection)</strong></td>
+					</tr>
+					<tr>
+						<td><strong>click(connection, originalEvent)</strong></td>
+					</tr>
+					<tr>
+						<td><strong>dblclick(connection, originalEvent)</strong></td>
+					</tr>
+					
+					<tr>
+						<td><strong>endpointClick(endpoint, originalEvent)</strong></td>
+					</tr>
+
+					<tr>
+						<td><strong>endpointDblClick(endpoint, originalEvent)</strong></td>
+					</tr>
+					<tr>
+						<td><strong>contextmenu(component, originalEvent)</strong></td>
+					</tr>
+					<tr>
+						<td><strong>beforeDrop(info)<a class="collapse-toggle" data-toggle="collapse" href="#beforeDrop"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i></a></td>
+					</tr>
+					<tr id="beforeDrop" class="collapse in">
+						<td >info contains the following properties: sourceId, targetId, scope, connection, dropEndpoint.</td>
+					</tr>
+					<tr>
+						<td><strong>beforeDetach(connection)</strong></td>
+					</tr>
+				</tbody>
+			</table>
 		</p>
 	</div>
 </div>

@@ -7,8 +7,7 @@
     <div class="panel-heading flat">
         <h4 class="panel-title">
             <i class="glyphicon glyphicon-move"></i> Dragging
-            <a class="collapse-toggle" data-toggle="collapse" href="#Dragging"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i>
-              </a>
+            <a class="collapse-toggle" data-toggle="collapse" href="#Dragging"><i class="glyphicon glyphicon-plus pull-right collapsable-icon"></i></a>
         </h4>
     </div>
     <div id="Dragging" class="panel-collapse collapse in">
