@@ -142,6 +142,41 @@ jsPlumb.bind("connection", function(info) {
 					</tr>
 				</tbody>
 			</table>
+			<h4>Are you hungry more?</h4>
+			<p>You can bind more events to connection or endpoint object. jsPlumb pass object of connection or endpoint to the callback.</p>
+<pre>
+var connection = jsPlumb.connect({source:"d1", target:"d2"});
+connection.bind("click", function(connection, originalEvent ) {
+    ...
+});
+</pre>
+			Supported events are : click, dblclick, contextmenu, mouseenter, mouseleave, mousedown, mouseup. You can bind <strong>maxConnections(info, originalEvent)</strong> to endpoint where info object has following properties : endpoint, connection and maxConnection.
 		</p>
+		<p>Since we don't create overlays separately so you bind an event at the time of creating connection.
+<pre>
+jsPlumb.connect({
+    source:"el1",
+    target:"el2",
+    overlays:[
+      [ "Label", {
+        events:{
+          click:function(labelOverlay, originalEvent) { 
+            console.log("click on label overlay for :" + labelOverlay.component); 
+          }
+        }
+      }],
+      [ "Diamond", {
+        events:{
+          dblclick:function(diamondOverlay, originalEvent) { 
+            console.log("double click on diamond overlay for : " + diamondOverlay.component); 
+          }
+        }
+      }]    
+    ]
+  });
+</pre>
+		</p>
+		<h4>Paintstyle</h4>
+		Supports : <strong>fillStyle</strong>, <strong>strokeStyle</strong>, and <strong>outlineColor</strong> which accepts color value. <strong>lineWidth</strong>, <strong>outlineWidth</strong> which accepts integer value. <strong>dashstyle</strong> which accepts an integer array. And <strong>joinstyle</strong> which accepts : miter, round,bevel. It also supports <code>gradient : {  stops:[[0, rgb(189,11,11)], [1, '#558822']] } </code>. Note that, <strong>fillStyle</strong> is ignored by Connectors, and <strong>strokeStyle</strong> is ignored by Endpoints.
 	</div>
 </div>

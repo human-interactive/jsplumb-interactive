@@ -87,7 +87,7 @@
     
     <script src="js/main.js"></script>
     <script src="js/jquery-ui.1.9.2.min.js"></script>
-    <script src="js/jquery.jsPlumb-1.6.2-min.js"></script>
+    <script src="js/jquery.jsPlumb-1.6.2.js"></script>
     <!--<script src="http://jsplumbtoolkit.com/js/jquery.jsPlumb-1.6.2-min.js"></script>-->
     <script src="js/bootstrap-colorpicker.min.js"></script>
     <script src="js/jquery.snippet.min.js"></script>
@@ -226,8 +226,8 @@
     
     var popoverText = {
       "Overlays" : "There can be any number of overlays. These are decorators for connector. You can control their position, direction, and style.",
-      "Connector": "This is the line drawn between 2 endpoints. It basically defines the line style whereas <strong>paintstyle</strong> defines line stroke.",
-      "Endpoint" : "Connects a connector to an element on an anchor. If it is detachable then it can be dragged to anchor of same or other element.",
+      "Connector": "This is the line drawn between 2 endpoints. It basically defines the line style: straight, curved ...  whereas <strong>paintstyle</strong> defines its appearance.",
+      "Endpoint" : "Connects a connector to an element on an anchor. If it is detachable then it can be dragged to anchor of same or other element.<br/> Additional <strong>paintstyle</strong> controls its appearance.",
       "Anchor"   :  "These are like ports on an element where a connector connects through endpoints. <br/> There are four faces of an element : top, right, botton and left."
     }
 
